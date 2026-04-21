@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Category Movies</title>
+  <style>
+    /* General Styles */
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #02050A;
+      color: white;
+    }
+
+    h1, h2, h3 {
+      margin: 0;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    }
+
+    a {
+      text-decoration: none;
+      color: #1A618A;
+      transition: color 0.3s ease;
+    }
+
+    a:hover {
+      color: #165478;
+    }
+
+    /* Header */
+    .header-container {
+      background-color: #06121F;
+      padding: 10px 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+    }
+
+    .header-container .logo {
+      color: #1A618A;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .header-container nav {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .header-container nav a {
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .header-container nav a:hover {
+      color: #165478;
+      text-shadow: 0 0 10px #165478;
+    }
+
+    /* Search Bar in Header */
+    .header-container .search-bar {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .header-container .search-bar input {
+      padding: 8px;
+      width: 200px;
+      border-radius: 20px;
+      border: 1px solid #0D2F4D;
+      background: #0A1E36;
+      color: white;
+      font-size: 14px;
+    }
+
+    .header-container .search-bar input::placeholder {
+      color: #12496D;
+    }
+
+    .header-container .search-bar button {
+      padding: 8px 15px;
+      background: #1A618A;
+      color: white;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+
+    .header-container .search-bar button:hover {
+      background: #165478;
+      transform: scale(1.05);
+    }
+
+    
+    body {
+      padding-top: 80px;
+    }
+
+    /* Movie Section */
+    .category-section {
+      padding: 40px;
+      background-color: #06121F;
+    }
+
+    .category-title {
+      color: #1A618A;
+      text-align: center;
+      font-size: 32px;
+    }
+
+    .movie-grid {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .movie-card {
+      background: #0A1E36;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+      text-align: center;
+      width: 300px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .movie-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7);
+    }
+
+    .movie-card img {
+      width: 100%;
+      border-radius: 8px;
+      transition: transform 0.3s ease;
+    }
+
+    .movie-card img:hover {
+      transform: scale(1.05);
+    }
+
+    .movie-card h3 {
+      color: white;
+      margin-top: 10px;
+    }
+
+    .movie-card a {
+      color: #1A618A;
+      font-weight: bold;
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 20px;
+      background: #0D2F4D;
+      border-radius: 20px;
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+
+    .movie-card a:hover {
+      background: #165478;
+      color: white;
+      transform: scale(1.1);
+    }
+
+    .movie-card p {
+  color: #12496D; 
+  font-size: 16px;
+  margin: 10px 0;
+}
+
+    /* Footer */
+    #footer {
+      padding: 40px;
+      background-color: #06121F;
+      text-align: center;
+      color: #12496D;
+    }
+
+    .footer-container {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .footer-section h3 {
+      color: #1A618A;
+      font-size: 18px;
+    }
+
+    .footer-section ul li a {
+      color: #12496D;
+    }
+
+    .footer-section ul li a:hover {
+      color: #165478;
+    }
+
+    .footer-bottom {
+      margin-top: 20px;
+      font-size: 14px;
+      color: #0D2F4D;
+    }
+
+    .social-icons ion-icon {
+      font-size: 24px;
+      margin: 0 10px;
+      color: #1A618A;
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+
+    .social-icons ion-icon:hover {
+      color: #165478;
+    }
+  </style>
+
+  <!-- Ionicons -->
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</head>
+<body>
+
+<header>
+  <div class="header-container">
+    <a href="homepage.html">
+      <h1 class="logo">MAG Cinema</h1>
+    </a>
+    <nav>
+      <a href="homepage.html">Home</a>
+      <a href="#all-time-fav">All-Time Favorite</a>
+      <a href="#movies">Movies</a>
+      <a href="#categories">Categories</a>
+      <a href="#live">LIVE</a>
+      <a href="login.html">Login</a>
+     
+    </nav>
+    <div class="search-bar">
+      <input type="text" placeholder="Search for movies..." id="search-input">
+      <button id="search-button">Search</button>
+    </div>
+  </div>
+</header>
+<section id="action" class="category-section">
+  <h2 class="category-title">Action </h2>
+  <div class="movie-grid">
+    <div class="movie-card">
+      <img src="images/Die Hard.jpg" alt="Die Hard"> 
+      <h3>Die Hard</h3>
+      <p>Action/Thriller • 1988</p>
+      <a href=https://youtu.be/jaJuwKCmJbY?si=B2MmVHO16TE4AJ48"" target="_blank">Watch Trailer</a>
+    </div>
+    <div class="movie-card">
+      <img src="images/MV5BMzBhMDRiYTAtNDkyZS00MTI0LTllYmQtMDg5ZTc2YmU4YzczXkEyXkFqcGc@._V1_QL75_UX1230_.jpg" alt="John Wick 3"> 
+      <h3>John Wick 3</h3>
+      <p>Action/Thriller • 2019</p>
+      <a href="https://youtu.be/M7XM597XO94?si=XKDVw8E_gglMINy4" target="_blank">Watch Trailer</a>
+    </div>
+    <div class="movie-card">
+      <img src="images/gladiator.jpg" alt="Gladiator"> 
+      <h3>Gladiator</h3>
+      <p>Action/Drama • 2000</p>
+      <a href="https://youtu.be/P5ieIbInFpg?si=Lzfeq3WtjEOGIZ7Y" target="_blank">Watch Trailer</a>
+    </div>
+    <div class="movie-card">
+      <img src="images/MV5BNThkNzZlMDYtZTY1Yy00NmY0LTg3ZjgtYTQ2ZWI0MTY0MjMxXkEyXkFqcGc@._V1_QL75_UX219_.jpg" alt="A Working Man"> 
+      <h3>A Working Man</h3>
+      <p>Action/Drama • 2025</p>
+      <a href="https://youtu.be/zTbgNC42Ops?si=V0mr3jOuwnQ0dHRR" target="_blank">Watch Trailer</a>
+    </div>
+  </div>
+</section>
+
+<section id="romance" class="category-section">
+  <h2 class="category-title">Romance </h2>
+  <div class="movie-grid">
+    <div class="movie-card">
+      <img src="images/MV5BMTkxMDUxYjItOWUzNS00YjFhLThjM2MtMmRhYWIwMWU4OTgyXkEyXkFqcGc@._V1_QL75_UX1230_.jpg" alt="Me Before You"> 
+      <h3>Me Before You</h3>
+      <p>Romance/Drama • 2016</p>
+      <a href="https://youtu.be/T0MmkG_nG1U?si=2cXvF42gZfxNwiMB" target="_blank">Watch Trailer</a>
+    </div>
+    <div class="movie-card">
+      <img src="images/MV5BNjY1ZTUwMjUtYmFmNy00M2Y0LWIyODUtNzE0ODEzZjUwNTVlXkEyXkFqcGc@._V1_QL75_UX1230_.jpg" alt="la la land"> 
+      <h3>La La Land</h3>
+      <p>Romance/Drama • 2016</p>
+      <a href="https://youtu.be/0pdqf4P9MB8?si=E8_lLV_Il6HU5zTE" target="_blank">Watch Trailer</a>
+    </div>
+    <div class="movie-card">
+      <img src="images/MV5BMjE2ODQyMzg4Nl5BMl5BanBnXkFtZTgwMzE2MzgwMzE@._V1_QL75_UX1230_.jpg" alt="Before Sunrise"> 
+      <h3>Before Sunrise</h3>
+      <p>Romance/Drama • 1995</p>
+      <a href="https://youtu.be/6MUcuqbGTxc?si=fxQBPD4iBTzbPc8J" target="_blank">Watch Trailer</a>
+    </div>
+    <div class="movie-card">
+      <img src="images/MV5BMTA1ODUzMDA3NzFeQTJeQWpwZ15BbWU3MDgxMTYxNTk@._V1_QL75_UX1230_ (1).jpg" alt="About Time"> 
+      <h3>About Time</h3>
+      <p>Romance/Fantasy • 2013</p>
+      <a href="https://youtu.be/7OIFdWk83no?si=PiDb9BfVM3mWhP3F" target="_blank">Watch Trailer</a>
+    </div>
+  </div>
+</section>
+
+
+<section id="comedy" class="category-section">
+  <h2 class="category-title">Comedy </h2>
+  <div class="movie-grid">
+    <div class="movie-card">
+      <img src="images/MV5BMWNiNjY4MWMtMGY3Yi00MzlkLWI5NGUtZDVkMzZlZTBkMDVkXkEyXkFqcGc@._V1_QL75_UX1230_.jpg" alt="Friends"> 
+      <h3>Friends</h3>
+      <p>Comedy/Drama • 1994</p>
+      <a href="https://youtu.be/RasWhgd4vao?si=PX-rCMQr7JDG7hHF" target="_blank">Watch Trailer</a>
+    </div>
+    <div class="movie-card">
+      <img src="images/MV5BNzRiNjIxYjktNmRkZC00NDU1LTg4NTAtZmVmZThhMGRmZTQ2XkEyXkFqcGc@._V1_QL75_UX1230_.jpg" alt="Hannah Montana"> 
+      <h3>Hannah Montana</h3>
+      <p>Comedy/Drama • 2006</p>
+      <a href="https://youtu.be/uIYluH80idw?si=a-K20ggHDo6a-p1-" target="_blank">Watch Trailer</a>
+    </div>
+    <div class="movie-card">
+      <img src="images/MV5BNDFjMTllMTktOWEyMy00MjI4LWJkOTgtODgwYTQ1ZGIyZDY0XkEyXkFqcGc@._V1_QL75_UX205.5_.jpg" alt="Siko Siko">
+      <h3>Siko Siko</h3>
+      <p>Comedy/Adventure • 2021</p>
+      <a href="https://youtu.be/HF_-YHAU9tQ?si=pUrEZ4frQI4m1b0s" target="_blank">Watch Trailer</a>
+    </div>
+    <div class="movie-card">
+      <img src="images/MV5BMjUzOTZkZWItM2UyNy00MTNiLTljOTUtMDA2MjE5M2Y2YjgwXkEyXkFqcGc@._V1_QL75_UX1230_.jpg" alt="Sorry to Disturb"> 
+      <h3>Sorry to Disturb</h3>
+      <p>Comedy/Drama • 2008</p>
+      <a href="https://youtu.be/KjyM5-2KMQY?si=ErlFVFpoe2JJ3tlX" target="_blank">Watch Trailer</a>
+    </div>
+  </div>
+</section>
+
+<section id="sci-fi" class="category-section">
+  <h2 class="category-title">Sci-Fi </h2>
+  <div class="movie-grid">
+    <div class="movie-card">
+      <img src="images/Sci-fi INTE.jpeg" alt="Interstellar"> 
+      <h3>Interstellar</h3>
+      <p>Sci-Fi/Adventure • 2014</p>
+      <a href="https://www.youtube.com/watch?v=zSWdZVtXT7E" target="_blank">Watch Trailer</a>
+    </div>
+    <div class="movie-card">
+      <img src="images/Sci-fi INCEPTON.jpeg" alt="Inception"> 
+      <h3>Inception</h3>
+      <p>Sci-Fi/Thriller • 2010</p>
+      <a href="https://youtu.be/YoHD9XEInc0?si=oGJ13GUOFOnsSaox" target="_blank">Watch Trailer</a>
+    </div>
+    <div class="movie-card">
+      <img src="images/MV5BMTJjZDcwZmUtMTRkOC00NDcwLTlhMmYtN2VkNDRlZDg2ZTNmXkEyXkFqcGc@._V1_QL75_UX231_.jpg" alt="The Matrix"> 
+      <h3>The Matrix</h3>
+      <p>Sci-Fi/Action • 1999</p>
+      <a href="https://youtu.be/vKQi3bBA1y8?si=1c3w8Bv3ZUFOr0r-" target="_blank">Watch Trailer</a>
+    </div>
+    <div class="movie-card">
+      <img src="images/Sci-fi BLADE.jpeg" alt="Blade Runner 2049"> 
+      <h3>Blade Runner 2049</h3>
+      <p>Sci-Fi/Drama • 2017</p>
+      <a href="https://youtu.be/gCcx85zbxz4?si=JUnFLAC_szvE9o_2" target="_blank">Watch Trailer</a>
+    </div>
+  </div>
+</section>
+
+
+<section id="animation" class="category-section">
+  <h2 class="category-title">Animation </h2>
+  <div class="movie-grid">
+    <div class="movie-card">
+      <img src="images/MV5BYzdjODIyMjctNDM2YS00N2MxLTg5YmEtNTc5M2EwMTg0OThhXkEyXkFqcGc@._V1_QL75_UX1230_.jpg" alt="Soul"> 
+      <h3>Soul</h3>
+      <p>Animation/Adventure • 2020</p>
+      <a href="https://youtu.be/xOsLIiBStEs?si=pP7KB4L_tTc78pbV" target="_blank">Watch Trailer</a>
+    </div>
+    <div class="movie-card">
+      <img src="images/MV5BZWM1ZjdjODUtNGIzNC00NWY3LTkzMjctMjEyMTU2N2NhYmVkXkEyXkFqcGc@._V1_QL75_UX1230_.jpg" alt="Mufasa"> 
+      <h3>Mufasa: The Lion King</h3>
+      <p>Animation/Drama • 2024</p>
+      <a href="https://youtu.be/o17MF9vnabg?si=1mQDAacdcJ5NhTC-" target="_blank">Watch Trailer</a>
+    </div>
+    <div class="movie-card">
+      <img src="images/MV5BN2I3MzJjYTEtMWRkMy00MDYzLWEyNjgtMDVlYjAzMjE4M2NkXkEyXkFqcGc@._V1_QL75_UX1230_.jpg" alt="Ratatouille"> 
+      <h3>Ratatouille</h3>
+      <p>Animation/Comedy • 2007</p>
+      <a href="https://youtu.be/NgsQ8mVkN8w?si=sTrDs-Zc_TDoXlKW" target="_blank">Watch Trailer</a>
+    </div>
+    <div class="movie-card">
+      <img src="images/MV5BOTVkZDEzNDEtYmI2OC00YWEyLThlMWUtNjA0MDU0MGRkOGVmXkEyXkFqcGc@._V1_QL75_UX1230_.jpg" alt="Avatar"> 
+      <h3>Avatar</h3>
+      <p>Animation/Fantasy • 2022</p>
+      <a href="https://youtu.be/d9MyW72ELq0?si=uzryakhs3iHCVLo3" target="_blank">Watch Trailer</a>
+    </div>
+  </div>
+</section>
+<section id="arabic" class="category-section">
+  <h2 class="category-title">Arabic </h2>
+  <div class="movie-grid">
+    <div class="movie-card">
+      <img src="images/MV5BNDkxMzk2ODU4N15BMl5BanBnXkFtZTgwNTM4NjIzMjE@._V1_QL75_UX1230_.jpg" alt="The Blue Elephant"> 
+      <h3>The Blue Elephant</h3>
+      <p>Drama/Thriller • 2014</p>
+      <a href="https://youtu.be/RIKclQFKFso?si=U1rlVEcJTOqiWAx0" target="_blank">Watch Trailer</a>
+    </div>
+    <div class="movie-card">
+      <img src="images/MV5BNzEzOWM4MTYtMTJlOS00MWQyLWJiYzAtODhhYzIwM2YwYTRjXkEyXkFqcGc@._V1_QL75_UX1230_.jpg" alt="6 Days"> 
+      <h3>A Girl Named Zat</h3>
+      <p>Drama/History • 2013</p>
+      <a href="https://youtu.be/Wo0XR1cWJvc?si=4M2itSiMLVVffUJp" target="_blank">Watch Trailer</a>
+    </div>
+    <div class="movie-card">
+      <img src="images/MV5BNzk3OWYyYTItZTBkOC00MTdhLWI3OGMtODUxYzMzMDZlYTc2XkEyXkFqcGc@._V1_QL75_UX1230_ (1) - Copy.jpg" alt="lam Shamseya"> 
+      <h3>Lam Shamseya</h3>
+      <p>Adventure/Drama • 2025</p>
+      <a href="https://youtu.be/Mw7hsU71coY?si=WLyqIwFKMC9zgohQ" target="_blank">Watch Trailer</a>
+    </div>
+    <div class="movie-card">
+      <img src="images/MV5BYjZkYTkwZTEtZjY2OS00YTQ2LTg3NjAtMmYxZjM4ZmVjNDQwXkEyXkFqcGc@._V1_QL75_UX213_.jpg" alt="The Yacoubian Building"> 
+      <h3>The Yacoubian Building</h3>
+      <p>Drama/Political • 2006</p>
+      <a href="https://youtu.be/Q4PHTUM9o9s?si=1vIPzyugmmqJDAf_" target="_blank">Watch Trailer</a>
+    </div>
+  </div>
+</section>
+
+<section id="old-arabic" class="category-section">
+  <h2 class="category-title">Old Arabic </h2>
+  <div class="movie-grid">
+    <div class="movie-card">
+      <img src="images/MV5BMTlhOWM0MzYtZTRkNC00YTE1LTk2N2YtOGIzNzhiZmM4ZDZiXkEyXkFqcGc@._V1_QL75_UX1230_.jpg" alt="Zawat Ragol Muhim"> 
+      <h3>Zawgat Ragol Muhim</h3>
+      <p>Drama/Thriller • 1987</p>
+      <a href="https://youtu.be/D7OM2bbRtzQ?si=Hyz-4etv3FDFE3rX" target="_blank">Watch Trailer</a>
+    </div>
+    <div class="movie-card">
+      <img src="images/MV5BODNlZjBhZmMtMDYzMC00ZmUyLTgxYWMtZmU5NTFkNmE5MzljXkEyXkFqcGc@._V1_QL75_UX1230_.jpg" alt="Shie Min Elkhof"> 
+      <h3>El-Zogah 13</h3>
+      <p>Drama/Romance• 1962</p>
+      <a href="" target="_blank">Watch Trailer</a>
+    </div>
+    <div class="movie-card">
+      <img src="images/MV5BM2Y3NmRkYTEtZTRhMy00ZmI3LTg3MzItZDU1NGY3YTMxMTYxXkEyXkFqcGc@._V1_QL75_UX1230_.jpg" alt="Mawed Ala Elashaa"> 
+      <h3>Maowid Ala Ashaa</h3>
+      <p>Drama/Romance • 1981</p>
+      <a href="https://youtu.be/oo-VBgWJIzo?si=9BL7X1SgiYCCEvEq" target="_blank">Watch Trailer</a>
+    </div>
+    <div class="movie-card">
+      <img src="images/MV5BMzVlZGQ2MzUtZDNiMi00OWNmLWJjMTQtMDRmYjQ4NDQ2YzY2XkEyXkFqcGc@._V1_QL75_UX229.5_.jpg" alt="The Egg and the Stone"> 
+      <h3>The Egg and the Stone</h3>
+      <p>Drama/Comedy • 1990</p>
+      <a href="https://youtu.be/ERl2bWR5n7A?si=eRn2TbOucAmvOzS0" target="_blank">Watch Trailer</a>
+    </div>
+  </div>
+</section>
+
+<footer id="footer">
+  <div class="footer-container">
+    <div class="footer-section">
+      <h3>Stay in Touch</h3>
+      <div class="social-icons">
+        <ion-icon name="logo-facebook"></ion-icon>
+        <ion-icon name="logo-twitter"></ion-icon>
+        <ion-icon name="logo-instagram"></ion-icon>
+        <ion-icon name="logo-youtube"></ion-icon>
+      </div>
+    </div>
+
+    <div class="footer-section">
+      <h3>About</h3>
+      <ul>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">FAQ</a></li>
+        <li><a href="#">Contact Us</a></li>
+        <li><a href="#">Careers</a></li>
+        <li><a href="#">Anti-Fraud Disclaimer</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-section">
+      <h3>Help & Support</h3>
+      <ul>
+        <li><a href="#">Refunds</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms and Conditions</a></li>
+        <li><a href="#">Health & Safety</a></li>
+        <li><a href="#">Cookie Settings</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-section">
+      <h3>Privacy Center</h3>
+      <ul>
+        <li><a href="#">Responsible Disclosure Policy</a></li>
+        <li><a href="#">Privacy Center</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2025 MAG Cinema. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+  const searchButton = document.getElementById("search-button");
+  const searchInput = document.getElementById("search-input");
+
+  searchButton.addEventListener("click", () => {
+    const query = searchInput.value.toLowerCase();
+    const movies = document.querySelectorAll(".movie-card");
+    movies.forEach(movie => {
+      const title = movie.querySelector("h3").innerText.toLowerCase();
+      movie.style.display = title.includes(query) ? "block" : "none";
+    });
+  });
+</script>
+
+</body>
+</html>

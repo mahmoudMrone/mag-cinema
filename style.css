@@ -1,0 +1,359 @@
+/* General Styles */
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #02050A;
+  color: white;
+}
+
+h1, h2, h3 {
+  margin: 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+a {
+  text-decoration: none;
+  color: #1A618A;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #165478;
+}
+
+/* Header */
+.header-container {
+  background-color: #06121F;
+  padding: 10px 20px; /* Adjusted padding for consistency */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed; /* Fixed header */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.header-container .logo {
+  color: #1A618A;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.header-container nav {
+  display: flex;
+  align-items: center;
+  gap: 20px; /* Consistent spacing between navigation links */
+}
+
+.header-container nav a {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.header-container nav a:hover {
+  color: #165478;
+  text-shadow: 0 0 10px #165478;
+}
+
+/* Search Bar in Header */
+.header-container .search-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.header-container .search-bar input {
+  padding: 8px;
+  width: 200px;
+  border-radius: 20px;
+  border: 1px solid #0D2F4D;
+  background: #0A1E36;
+  color: white;
+  font-size: 14px;
+}
+
+.header-container .search-bar input::placeholder {
+  color: #12496D;
+}
+
+.header-container .search-bar button {
+  padding: 8px 15px;
+  background: #1A618A;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.header-container .search-bar button:hover {
+  background: #165478;
+  transform: scale(1.05);
+}
+
+/* Add padding to prevent content from being hidden under the fixed header */
+body {
+  padding-top: 80px;
+}
+
+/* Footer */
+#footer {
+  padding: 40px;
+  background-color: #06121F;
+  text-align: center;
+  color: #12496D;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.footer-section h3 {
+  color: #1A618A;
+  font-size: 18px;
+}
+
+.footer-section ul li a {
+  color: #12496D;
+}
+
+.footer-section ul li a:hover {
+  color: #165478;
+}
+
+.footer-bottom {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #0D2F4D;
+}
+
+/* Social Media Icons in Footer */
+.social-icons ion-icon {
+  font-size: 24px;
+  margin: 0 5px; /* Adjusted for consistent spacing */
+  color: #1A618A;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.social-icons ion-icon:hover {
+  color: #165478;
+}
+
+/* All-Time Favorites Section */
+.all-time-fav {
+  padding: 40px;
+  background-color: #06121F;
+  text-align: center;
+}
+
+.all-time-fav h2 {
+  color: #1A618A;
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.favorite-movie {
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: #0A1E36;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.favorite-movie h3 {
+  color: white;
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.favorite-movie p {
+  color: #12496D;
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.favorite-movie iframe {
+  width: 100%;
+  height: 400px;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7);
+}
+
+/* Movies Section */
+#movies {
+  padding: 40px;
+  background-color: #06121F;
+}
+
+#movies h2 {
+  color: #1A618A;
+  font-size: 32px;
+  text-align: center;
+}
+
+.movie-grid {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.movie-card {
+  background: #0A1E36;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  width: 300px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.movie-card:hover {
+  transform: translateY(-10px) rotate(1deg);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7);
+}
+
+.movie-card img {
+  width: 100%;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.movie-card img:hover {
+  transform: scale(1.05);
+}
+
+.movie-card h3 {
+  color: white;
+  margin-top: 10px;
+}
+
+.movie-card p {
+  color: #12496D;
+}
+
+.movie-card a {
+  color: #1A618A;
+  font-weight: bold;
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 20px;
+  background: #0D2F4D;
+  border-radius: 20px;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.movie-card a:hover {
+  background: #165478;
+  color: white;
+  transform: scale(1.1);
+}
+
+/* Categories Section */
+#categories {
+  padding: 40px;
+  background-color: #06121F;
+}
+
+#categories h2 {
+  color: #1A618A;
+  font-size: 32px;
+  text-align: center;
+}
+
+.category-grid {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.category-card {
+  background-color: #0A1E36;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  width: 300px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.category-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7);
+}
+
+.category-card img {
+  width: 100%;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.category-card img:hover {
+  transform: scale(1.05);
+}
+
+.category-card h3 {
+  color: white;
+  margin-top: 10px;
+}
+
+/* Live Section */
+#live {
+  padding: 40px;
+  background-color: #06121F;
+}
+
+#live h2 {
+  color: #1A618A;
+  font-size: 32px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.live-grid {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.live-card {
+  background-color: #0A1E36;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  width: 300px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.live-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7);
+}
+
+.live-card iframe {
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.live-card h3 {
+  color: white;
+  margin-top: 10px;
+}
+
+.live-card p {
+  color: #12496D;
+}
